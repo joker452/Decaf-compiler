@@ -1,0 +1,163 @@
+FUNCTION _Computer_New : 
+BASIC BLOCK 0 : 
+  Def     = [ _T4 _T5 _T6 _T7 ]
+  defDU   = [ ]
+  redef   = [ _T4 _T5 _T6 _T7 ]
+  liveUseDU = [ ]
+  liveUse = [ ]
+  liveIn  = [ ]
+  liveInDU = [ ]
+  liveOut = [ ]
+  liveOutDU = [ ]
+    1 _T4 = 8 [ _T4 ]
+    2 parm _T4 [ ]
+    3 _T5 =  call _Alloc [ _T5 ]
+    4 _T6 = 0 [ _T5 _T6 ]
+    5 *(_T5 + 4) = _T6 [ _T5 ]
+    6 _T7 = VTBL <_Computer> [ _T5 _T7 ]
+    7 *(_T5 + 0) = _T7 [ _T5 ]
+END BY RETURN, result = _T5
+
+FUNCTION _Mac_New : 
+BASIC BLOCK 0 : 
+  Def     = [ _T8 _T9 _T10 _T11 ]
+  defDU   = [ ]
+  redef   = [ _T8 _T9 _T10 _T11 ]
+  liveUseDU = [ ]
+  liveUse = [ ]
+  liveIn  = [ ]
+  liveInDU = [ ]
+  liveOut = [ ]
+  liveOutDU = [ ]
+    9 _T8 = 12 [ _T8 ]
+    10 parm _T8 [ ]
+    11 _T9 =  call _Alloc [ _T9 ]
+    12 _T10 = 0 [ _T9 _T10 ]
+    13 *(_T9 + 4) = _T10 [ _T9 _T10 ]
+    14 *(_T9 + 8) = _T10 [ _T9 ]
+    15 _T11 = VTBL <_Mac> [ _T9 _T11 ]
+    16 *(_T9 + 0) = _T11 [ _T9 ]
+END BY RETURN, result = _T9
+
+FUNCTION _Main_New : 
+BASIC BLOCK 0 : 
+  Def     = [ _T12 _T13 _T14 ]
+  defDU   = [ ]
+  redef   = [ _T12 _T13 _T14 ]
+  liveUseDU = [ ]
+  liveUse = [ ]
+  liveIn  = [ ]
+  liveInDU = [ ]
+  liveOut = [ ]
+  liveOutDU = [ ]
+    18 _T12 = 4 [ _T12 ]
+    19 parm _T12 [ ]
+    20 _T13 =  call _Alloc [ _T13 ]
+    21 _T14 = VTBL <_Main> [ _T13 _T14 ]
+    22 *(_T13 + 0) = _T14 [ _T13 ]
+END BY RETURN, result = _T13
+
+FUNCTION _Computer.Crash : 
+BASIC BLOCK 0 : 
+  Def     = [ _T15 _T16 ]
+  defDU   = [ (28, _T15) (31, _T15) ]
+  redef   = [ _T15 _T16 ]
+  liveUseDU = [ ]
+  liveUse = [ ]
+  liveIn  = [ _T1 ]
+  liveInDU = [ (31, _T1) ]
+  liveOut = [ _T1 _T15 ]
+  liveOutDU = [ (31, _T1) (28, _T15) (31, _T15) ]
+    24 _T16 = 0 [ _T16 _T1 ]
+    25 _T15 = _T16 [ _T1 _T15 ]
+END BY BRANCH, goto 2
+BASIC BLOCK 1 : 
+  Def     = [ _T17 _T18 ]
+  defDU   = [ (28, _T15) (31, _T15) ]
+  redef   = [ _T15 _T17 _T18 ]
+  liveUseDU = [ (28, _T15) ]
+  liveUse = [ _T15 ]
+  liveIn  = [ _T1 _T15 ]
+  liveInDU = [ (31, _T1) (28, _T15) ]
+  liveOut = [ _T1 _T15 ]
+  liveOutDU = [ (31, _T1) (28, _T15) (31, _T15) ]
+    27 _T17 = 1 [ _T1 _T17 _T15 ]
+    28 _T18 = (_T15 + _T17) [ _T1 _T18 ]
+    29 _T15 = _T18 [ _T1 _T15 ]
+END BY BRANCH, goto 2
+BASIC BLOCK 2 : 
+  Def     = [ _T19 ]
+  defDU   = [ ]
+  redef   = [ _T19 ]
+  liveUseDU = [ (31, _T1) (31, _T15) ]
+  liveUse = [ _T1 _T15 ]
+  liveIn  = [ _T1 _T15 ]
+  liveInDU = [ (31, _T1) (28, _T15) (31, _T15) ]
+  liveOut = [ _T1 _T15 ]
+  liveOutDU = [ (31, _T1) (28, _T15) ]
+    31 _T19 = (_T15 < _T1) [ _T1 _T19 _T15 ]
+END BY BEQZ, if _T19 = 
+    0 : goto 4; 1 : goto 3
+BASIC BLOCK 3 : 
+  Def     = [ _T20 ]
+  defDU   = [ ]
+  redef   = [ _T20 ]
+  liveUseDU = [ ]
+  liveUse = [ ]
+  liveIn  = [ _T1 _T15 ]
+  liveInDU = [ (31, _T1) (28, _T15) ]
+  liveOut = [ _T1 _T15 ]
+  liveOutDU = [ (31, _T1) (28, _T15) ]
+    33 _T20 = "sad\n" [ _T1 _T20 _T15 ]
+    34 parm _T20 [ _T1 _T15 ]
+    35 call _PrintString [ _T1 _T15 ]
+END BY BRANCH, goto 1
+BASIC BLOCK 4 : 
+  Def     = [ ]
+  defDU   = [ ]
+  redef   = [ ]
+  liveUseDU = [ ]
+  liveUse = [ ]
+  liveIn  = [ ]
+  liveInDU = [ ]
+  liveOut = [ ]
+  liveOutDU = [ ]
+END BY RETURN, void result
+
+FUNCTION _Mac.Crash : 
+BASIC BLOCK 0 : 
+  Def     = [ _T21 ]
+  defDU   = [ ]
+  redef   = [ _T21 ]
+  liveUseDU = [ ]
+  liveUse = [ ]
+  liveIn  = [ ]
+  liveInDU = [ ]
+  liveOut = [ ]
+  liveOutDU = [ ]
+    38 _T21 = "ack!" [ _T21 ]
+    39 parm _T21 [ ]
+    40 call _PrintString [ ]
+END BY RETURN, void result
+
+FUNCTION main : 
+BASIC BLOCK 0 : 
+  Def     = [ _T22 _T23 _T24 _T25 _T26 ]
+  defDU   = [ ]
+  redef   = [ _T22 _T23 _T24 _T25 _T26 ]
+  liveUseDU = [ ]
+  liveUse = [ ]
+  liveIn  = [ ]
+  liveInDU = [ ]
+  liveOut = [ ]
+  liveOutDU = [ ]
+    42 _T23 =  call _Mac_New [ _T23 ]
+    43 _T22 = _T23 [ _T22 ]
+    44 _T24 = 2 [ _T22 _T24 ]
+    45 parm _T22 [ _T22 _T24 ]
+    46 parm _T24 [ _T22 ]
+    47 _T25 = *(_T22 + 0) [ _T25 ]
+    48 _T26 = *(_T25 + 8) [ _T26 ]
+    49 call _T26 [ ]
+END BY RETURN, void result
+

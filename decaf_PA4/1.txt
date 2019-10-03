@@ -1,0 +1,148 @@
+"C:\software\programming language\java\bin\java.exe" "-javaagent:C:\software\ide\intellj\IntelliJ IDEA 2018.3.2\lib\idea_rt.jar=65273:C:\software\ide\intellj\IntelliJ IDEA 2018.3.2\bin" -Dfile.encoding=UTF-8 -classpath C:\code\java\decaf_PA4\out\production\decaf_PA4;C:\software\ide\anaconda\DLLs;C:\software\ide\anaconda\Lib;C:\software\ide\anaconda;C:\software\ide\anaconda\Lib\site-packages;C:\software\ide\anaconda\Lib\site-packages\win32;C:\software\ide\anaconda\Lib\site-packages\win32\lib;C:\software\ide\anaconda\Lib\site-packages\pythonwin;C:\Users\Deng\.IntelliJIdea2018.3\system\python_stubs\1632608719;C:\Users\Deng\.IntelliJIdea2018.3\config\plugins\python\helpers\python-skeletons;C:\Users\Deng\.IntelliJIdea2018.3\config\plugins\python\helpers\typeshed\stdlib\3;C:\Users\Deng\.IntelliJIdea2018.3\config\plugins\python\helpers\typeshed\stdlib\2and3;C:\Users\Deng\.IntelliJIdea2018.3\config\plugins\python\helpers\typeshed\third_party\3;C:\Users\Deng\.IntelliJIdea2018.3\config\plugins\python\helpers\typeshed\third_party\2and3 decaf.Driver -l 3_1 stack.decaf
+FUNCTION _Stack_New : 
+BASIC BLOCK 0 : 
+  Def     = [ _T3 _T4 _T5 _T6 ]
+  defDU   = [ ]
+  liveUseDU = [ ]
+  liveUse = [ ]
+  liveIn  = [ ]
+  liveOut = [ ]
+    1 _T3 = 12 [ _T3 ]
+    2 parm _T3 [ ]
+    3 _T4 =  call _Alloc [ _T4 ]
+    4 _T5 = 0 [ _T4 _T5 ]
+    5 *(_T4 + 4) = _T5 [ _T4 _T5 ]
+    6 *(_T4 + 8) = _T5 [ _T4 ]
+    7 _T6 = VTBL <_Stack> [ _T4 _T6 ]
+    8 *(_T4 + 0) = _T6 [ _T4 ]
+END BY RETURN, result = _T4
+
+FUNCTION _Main_New : 
+BASIC BLOCK 0 : 
+  Def     = [ _T7 _T8 _T9 ]
+  defDU   = [ ]
+  liveUseDU = [ ]
+  liveUse = [ ]
+  liveIn  = [ ]
+  liveOut = [ ]
+    10 _T7 = 4 [ _T7 ]
+    11 parm _T7 [ ]
+    12 _T8 =  call _Alloc [ _T8 ]
+    13 _T9 = VTBL <_Main> [ _T8 _T9 ]
+    14 *(_T8 + 0) = _T9 [ _T8 ]
+END BY RETURN, result = _T8
+
+FUNCTION _Stack.Init : 
+BASIC BLOCK 0 : 
+  Def     = [ _T10 _T11 _T12 _T13 ]
+  defDU   = [ (27, _T11) (31, _T11) ]
+  liveUseDU = [ (16, _T0) ]
+  liveUse = [ _T0 ]
+  liveIn  = [ _T0 ]
+  liveOut = [ _T0 _T11 ]
+    16 _T10 = *(_T0 + 8) [ _T0 ]
+    17 _T11 = 100 [ _T0 _T11 ]
+    18 _T12 = 0 [ _T0 _T11 _T12 ]
+    19 _T13 = (_T11 < _T12) [ _T0 _T11 _T13 ]
+END BY BEQZ, if _T13 = 
+    0 : goto 2; 1 : goto 1
+BASIC BLOCK 1 : 
+  Def     = [ _T14 ]
+  defDU   = [ ]
+  liveUseDU = [ ]
+  liveUse = [ ]
+  liveIn  = [ _T0 _T11 ]
+  liveOut = [ _T0 _T11 ]
+    21 _T14 = "Decaf runtime error: Cannot create negative-sized array\n" [ _T0 _T11 _T14 ]
+    22 parm _T14 [ _T0 _T11 ]
+    23 call _PrintString [ _T0 _T11 ]
+    24 call _Halt [ _T0 _T11 ]
+END BY BRANCH, goto 2
+BASIC BLOCK 2 : 
+  Def     = [ _T15 _T16 _T17 _T18 _T19 ]
+  defDU   = [ (35, _T15) (37, _T15) (35, _T17) (36, _T17) (37, _T18) (38, _T18) (40, _T18) (38, _T19) ]
+  liveUseDU = [ (27, _T11) (31, _T11) ]
+  liveUse = [ _T11 ]
+  liveIn  = [ _T0 _T11 ]
+  liveOut = [ _T0 _T15 _T17 _T18 _T19 ]
+    26 _T15 = 4 [ _T0 _T11 _T15 ]
+    27 _T16 = (_T15 * _T11) [ _T0 _T16 _T11 _T15 ]
+    28 _T17 = (_T15 + _T16) [ _T0 _T17 _T11 _T15 ]
+    29 parm _T17 [ _T0 _T17 _T11 _T15 ]
+    30 _T18 =  call _Alloc [ _T0 _T17 _T18 _T11 _T15 ]
+    31 *(_T18 + 0) = _T11 [ _T0 _T17 _T18 _T15 ]
+    32 _T19 = 0 [ _T0 _T17 _T18 _T19 _T15 ]
+    33 _T18 = (_T18 + _T17) [ _T0 _T17 _T18 _T19 _T15 ]
+END BY BRANCH, goto 3
+BASIC BLOCK 3 : 
+  Def     = [ ]
+  defDU   = [ ]
+  liveUseDU = [ (35, _T15) (35, _T17) (36, _T17) ]
+  liveUse = [ _T15 _T17 ]
+  liveIn  = [ _T0 _T15 _T17 _T18 _T19 ]
+  liveOut = [ _T0 _T15 _T17 _T18 _T19 ]
+    35 _T17 = (_T17 - _T15) [ _T0 _T17 _T18 _T19 _T15 ]
+END BY BEQZ, if _T17 = 
+    0 : goto 5; 1 : goto 4
+BASIC BLOCK 4 : 
+  Def     = [ ]
+  defDU   = [ ]
+  liveUseDU = [ (37, _T15) (37, _T18) (38, _T18) (38, _T19) ]
+  liveUse = [ _T15 _T18 _T19 ]
+  liveIn  = [ _T0 _T15 _T17 _T18 _T19 ]
+  liveOut = [ _T0 _T15 _T17 _T18 _T19 ]
+    37 _T18 = (_T18 - _T15) [ _T0 _T17 _T18 _T19 _T15 ]
+    38 *(_T18 + 0) = _T19 [ _T0 _T17 _T18 _T19 _T15 ]
+END BY BRANCH, goto 3
+BASIC BLOCK 5 : 
+  Def     = [ _T20 _T21 _T22 _T23 _T24 ]
+  defDU   = [ ]
+  liveUseDU = [ (40, _T0) (41, _T0) (43, _T0) (45, _T0) (47, _T0) (40, _T18) ]
+  liveUse = [ _T0 _T18 ]
+  liveIn  = [ _T0 _T18 ]
+  liveOut = [ _T0 ]
+    40 *(_T0 + 8) = _T18 [ _T0 ]
+    41 _T20 = *(_T0 + 4) [ _T0 ]
+    42 _T21 = 0 [ _T0 _T21 ]
+    43 *(_T0 + 4) = _T21 [ _T0 ]
+    44 _T22 = 3 [ _T0 _T22 ]
+    45 parm _T0 [ _T0 _T22 ]
+    46 parm _T22 [ _T0 ]
+    47 _T23 = *(_T0 + 0) [ _T0 _T23 ]
+    48 _T24 = *(_T23 + 12) [ _T0 _T24 ]
+    49 call _T24 [ _T0 ]
+END BY RETURN, void result
+
+FUNCTION _Stack.Push : 
+BASIC BLOCK 0 : 
+  Def     = [ ]
+  defDU   = [ ]
+  liveUseDU = [ ]
+  liveUse = [ ]
+  liveIn  = [ ]
+  liveOut = [ ]
+END BY RETURN, void result
+
+FUNCTION _Stack.main : 
+BASIC BLOCK 0 : 
+  Def     = [ ]
+  defDU   = [ ]
+  liveUseDU = [ ]
+  liveUse = [ ]
+  liveIn  = [ ]
+  liveOut = [ ]
+END BY RETURN, void result
+
+FUNCTION main : 
+BASIC BLOCK 0 : 
+  Def     = [ ]
+  defDU   = [ ]
+  liveUseDU = [ ]
+  liveUse = [ ]
+  liveIn  = [ ]
+  liveOut = [ ]
+    53 call _Stack.main [ ]
+END BY RETURN, void result
+
+
+Process finished with exit code 0

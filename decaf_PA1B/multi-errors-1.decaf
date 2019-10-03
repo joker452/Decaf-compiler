@@ -1,0 +1,6 @@
+public class Main { // error 1: program should start with 'class', not identifier 'public'
+    static void main() {
+        int z[];
+        z[] = 2; // error 4: missing index for '[]'
+    }
+}

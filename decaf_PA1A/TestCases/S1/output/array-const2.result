@@ -1,0 +1,22 @@
+program
+    class Main <empty>
+        static func main voidtype
+            formals
+            stmtblock
+                vardef arrayConsts arrtype arrtype inttype
+                assign
+                    varref arrayConsts
+                    array const
+                        array const
+                            intconst 1
+                            intconst 2
+                            intconst 3
+                        array const
+                            intconst 4
+                            intconst 5
+                            intconst 6
+                        array const
+                            stringconst "a"
+                            intconst 8
+                            intconst 9
+                            intconst 10

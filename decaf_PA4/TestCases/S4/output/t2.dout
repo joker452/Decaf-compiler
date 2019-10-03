@@ -1,0 +1,70 @@
+FUNCTION _Main_New : 
+BASIC BLOCK 0 : 
+  Def     = [ _T0 _T1 _T2 ]
+  defDU   = [ ]
+  redef   = [ _T0 _T1 _T2 ]
+  liveUseDU = [ ]
+  liveUse = [ ]
+  liveIn  = [ ]
+  liveInDU = [ ]
+  liveOut = [ ]
+  liveOutDU = [ ]
+    1 _T0 = 4 [ _T0 ]
+    2 parm _T0 [ ]
+    3 _T1 =  call _Alloc [ _T1 ]
+    4 _T2 = VTBL <_Main> [ _T1 _T2 ]
+    5 *(_T1 + 0) = _T2 [ _T1 ]
+END BY RETURN, result = _T1
+
+FUNCTION main : 
+BASIC BLOCK 0 : 
+  Def     = [ _T3 _T4 _T5 _T6 _T7 _T8 ]
+  defDU   = [ (15, _T3) (23, _T3) (18, _T5) ]
+  redef   = [ _T3 _T4 _T5 _T6 _T7 _T8 ]
+  liveUseDU = [ ]
+  liveUse = [ ]
+  liveIn  = [ ]
+  liveInDU = [ ]
+  liveOut = [ _T3 _T5 ]
+  liveOutDU = [ (15, _T3) (23, _T3) (18, _T5) ]
+    7 _T6 = 1 [ _T6 ]
+    8 _T5 = _T6 [ _T5 ]
+    9 _T7 = "wow!" [ _T5 _T7 ]
+    10 _T4 = _T7 [ _T5 ]
+    11 _T8 = 3 [ _T5 _T8 ]
+    12 _T3 = _T8 [ _T3 _T5 ]
+END BY BEQZ, if _T5 = 
+    0 : goto 2; 1 : goto 1
+BASIC BLOCK 1 : 
+  Def     = [ _T9 _T10 ]
+  defDU   = [ (23, _T3) ]
+  redef   = [ _T3 _T9 _T10 ]
+  liveUseDU = [ (15, _T3) ]
+  liveUse = [ _T3 ]
+  liveIn  = [ _T3 _T5 ]
+  liveInDU = [ (15, _T3) (18, _T5) ]
+  liveOut = [ _T3 _T5 ]
+  liveOutDU = [ (23, _T3) (18, _T5) ]
+    14 _T9 = 5 [ _T3 _T5 _T9 ]
+    15 _T10 = (_T3 * _T9) [ _T5 _T10 ]
+    16 _T3 = _T10 [ _T3 _T5 ]
+END BY BRANCH, goto 2
+BASIC BLOCK 2 : 
+  Def     = [ _T11 ]
+  defDU   = [ ]
+  redef   = [ _T11 ]
+  liveUseDU = [ (23, _T3) (18, _T5) ]
+  liveUse = [ _T3 _T5 ]
+  liveIn  = [ _T3 _T5 ]
+  liveInDU = [ (23, _T3) (18, _T5) ]
+  liveOut = [ ]
+  liveOutDU = [ ]
+    18 parm _T5 [ _T3 ]
+    19 call _PrintBool [ _T3 ]
+    20 _T11 = " " [ _T3 _T11 ]
+    21 parm _T11 [ _T3 ]
+    22 call _PrintString [ _T3 ]
+    23 parm _T3 [ ]
+    24 call _PrintInt [ ]
+END BY RETURN, void result
+

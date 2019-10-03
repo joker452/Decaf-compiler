@@ -1,0 +1,108 @@
+FUNCTION _Cow_New : 
+BASIC BLOCK 0 : 
+  Def     = [ _T4 _T5 _T6 _T7 ]
+  defDU   = [ ]
+  redef   = [ _T4 _T5 _T6 _T7 ]
+  liveUseDU = [ ]
+  liveUse = [ ]
+  liveIn  = [ ]
+  liveInDU = [ ]
+  liveOut = [ ]
+  liveOutDU = [ ]
+    1 _T4 = 12 [ _T4 ]
+    2 parm _T4 [ ]
+    3 _T5 =  call _Alloc [ _T5 ]
+    4 _T6 = 0 [ _T5 _T6 ]
+    5 *(_T5 + 4) = _T6 [ _T5 _T6 ]
+    6 *(_T5 + 8) = _T6 [ _T5 ]
+    7 _T7 = VTBL <_Cow> [ _T5 _T7 ]
+    8 *(_T5 + 0) = _T7 [ _T5 ]
+END BY RETURN, result = _T5
+
+FUNCTION _Main_New : 
+BASIC BLOCK 0 : 
+  Def     = [ _T8 _T9 _T10 ]
+  defDU   = [ ]
+  redef   = [ _T8 _T9 _T10 ]
+  liveUseDU = [ ]
+  liveUse = [ ]
+  liveIn  = [ ]
+  liveInDU = [ ]
+  liveOut = [ ]
+  liveOutDU = [ ]
+    10 _T8 = 4 [ _T8 ]
+    11 parm _T8 [ ]
+    12 _T9 =  call _Alloc [ _T9 ]
+    13 _T10 = VTBL <_Main> [ _T9 _T10 ]
+    14 *(_T9 + 0) = _T10 [ _T9 ]
+END BY RETURN, result = _T9
+
+FUNCTION _Cow.Init : 
+BASIC BLOCK 0 : 
+  Def     = [ _T11 _T12 ]
+  defDU   = [ ]
+  redef   = [ _T11 _T12 ]
+  liveUseDU = [ (16, _T0) (17, _T0) (18, _T0) (19, _T0) (17, _T1) (19, _T2) ]
+  liveUse = [ _T0 _T1 _T2 ]
+  liveIn  = [ _T0 _T1 _T2 ]
+  liveInDU = [ (16, _T0) (17, _T0) (18, _T0) (19, _T0) (17, _T1) (19, _T2) ]
+  liveOut = [ ]
+  liveOutDU = [ ]
+    16 _T11 = *(_T0 + 8) [ _T0 _T1 _T2 ]
+    17 *(_T0 + 8) = _T1 [ _T0 _T2 ]
+    18 _T12 = *(_T0 + 4) [ _T0 _T2 ]
+    19 *(_T0 + 4) = _T2 [ ]
+END BY RETURN, void result
+
+FUNCTION _Cow.Moo : 
+BASIC BLOCK 0 : 
+  Def     = [ _T13 _T14 _T15 _T16 ]
+  defDU   = [ ]
+  redef   = [ _T13 _T14 _T15 _T16 ]
+  liveUseDU = [ (21, _T3) (27, _T3) ]
+  liveUse = [ _T3 ]
+  liveIn  = [ _T3 ]
+  liveInDU = [ (21, _T3) (27, _T3) ]
+  liveOut = [ ]
+  liveOutDU = [ ]
+    21 _T13 = *(_T3 + 4) [ _T3 _T13 ]
+    22 parm _T13 [ _T3 ]
+    23 call _PrintInt [ _T3 ]
+    24 _T14 = " " [ _T3 _T14 ]
+    25 parm _T14 [ _T3 ]
+    26 call _PrintString [ _T3 ]
+    27 _T15 = *(_T3 + 8) [ _T15 ]
+    28 parm _T15 [ ]
+    29 call _PrintInt [ ]
+    30 _T16 = "\n" [ _T16 ]
+    31 parm _T16 [ ]
+    32 call _PrintString [ ]
+END BY RETURN, void result
+
+FUNCTION main : 
+BASIC BLOCK 0 : 
+  Def     = [ _T17 _T18 _T19 _T20 _T21 _T22 _T23 _T24 ]
+  defDU   = [ ]
+  redef   = [ _T17 _T18 _T19 _T20 _T21 _T22 _T23 _T24 ]
+  liveUseDU = [ ]
+  liveUse = [ ]
+  liveIn  = [ ]
+  liveInDU = [ ]
+  liveOut = [ ]
+  liveOutDU = [ ]
+    34 _T18 =  call _Cow_New [ _T18 ]
+    35 _T17 = _T18 [ _T17 ]
+    36 _T19 = 100 [ _T17 _T19 ]
+    37 _T20 = 122 [ _T17 _T19 _T20 ]
+    38 parm _T17 [ _T17 _T19 _T20 ]
+    39 parm _T19 [ _T17 _T20 ]
+    40 parm _T20 [ _T17 ]
+    41 _T21 = *(_T17 + 0) [ _T17 _T21 ]
+    42 _T22 = *(_T21 + 8) [ _T17 _T22 ]
+    43 call _T22 [ _T17 ]
+    44 parm _T17 [ _T17 ]
+    45 _T23 = *(_T17 + 0) [ _T23 ]
+    46 _T24 = *(_T23 + 12) [ _T24 ]
+    47 call _T24 [ ]
+END BY RETURN, void result
+

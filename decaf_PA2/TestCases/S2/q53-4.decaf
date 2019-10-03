@@ -1,0 +1,24 @@
+class people{
+	string name;
+	int age;
+	int getage(){return age;}
+	string getname(){return name;}
+}
+class student extends people{
+	string stuid;
+	string getstuid(){return stuid;}
+}
+class Classroom {
+	class student[] studentlist;
+	void liststudents(){
+		foreach(var stu in studentlist)
+			Print(stu.getname());
+	}
+}
+
+class Main { 
+	static void main() { 
+	class Classroom c;
+		c.liststudents();
+	} 
+}

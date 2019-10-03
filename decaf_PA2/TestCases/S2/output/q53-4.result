@@ -1,0 +1,33 @@
+GLOBAL SCOPE:
+    (1,1) -> class people
+    (7,1) -> class student : people
+    (11,1) -> class Classroom
+    (19,1) -> class Main
+    CLASS SCOPE OF 'people':
+        (2,9) -> variable name : string
+        (3,6) -> variable age : int
+        (4,6) -> function getage : class : people->int
+        (5,9) -> function getname : class : people->string
+        FORMAL SCOPE OF 'getage':
+            (4,6) -> variable @this : class : people
+            LOCAL SCOPE:
+        FORMAL SCOPE OF 'getname':
+            (5,9) -> variable @this : class : people
+            LOCAL SCOPE:
+    CLASS SCOPE OF 'student':
+        (8,9) -> variable stuid : string
+        (9,9) -> function getstuid : class : student->string
+        FORMAL SCOPE OF 'getstuid':
+            (9,9) -> variable @this : class : student
+            LOCAL SCOPE:
+    CLASS SCOPE OF 'Classroom':
+        (12,18) -> variable studentlist : class : student[]
+        (13,7) -> function liststudents : class : Classroom->void
+        FORMAL SCOPE OF 'liststudents':
+            (13,7) -> variable @this : class : Classroom
+            LOCAL SCOPE:
+    CLASS SCOPE OF 'Main':
+        (20,14) -> static function main : void
+        FORMAL SCOPE OF 'main':
+            LOCAL SCOPE:
+                (21,18) -> variable c : class : Classroom
